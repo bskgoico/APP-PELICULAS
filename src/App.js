@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import withResults from './mocks/with-results.json';
+import withoutResults from './mocks/no-results.json';
+import { Movies } from './components/Movies';
 
 function App() {
+  const movies = withResults.Search;
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="page">
+      
+      <header>
+        <h1>Buscador de Películas</h1>
+        <form className='form'>
+          <input placeholder='Avengers, Stars Wars, The Matrix...'/>
+          <button type='submit'>Buscar</button>
+        </form>
+      </header> 
+      
+      <main>
+      <Movies movies={movies} />
+      
+      </main>
+      
+    
     </div>
-  );
+  ); 
 }
 
 export default App;
